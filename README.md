@@ -14,15 +14,8 @@
   </picture>
 </a>
 
-## Comandos para iniciar o projeto
-```sh
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-python app.py
-```
 
 ## Gere sua chave da API do Gemini
-<button>
-botão Gemini
-</button>
+<a href="https://aistudio.google.com/app/apikey" style="border: 1px solid #1263c8; color: #FFFFFF; background-color: #1263c8; padding: .5rem; border-radius: 20px;">
+  Gere sua chave de API no Google AI Studio
+</a>
