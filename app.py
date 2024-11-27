@@ -4,8 +4,6 @@ import os
 
 from schemas import *
 
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
-model = genai.GenerativeModel("gemini-1.5-flash")
 prompt = """
 Baseado em uma lista de ingredientes fornecida pelo usuário, você será responsável por sugerir uma receita culinária que o usuário possa cozinhar.
 Sua resposta deve conter apenas o título da receita, os ingredientes e suas quantidades.
@@ -19,15 +17,6 @@ Segue a lista de ingredientes fornecida pelo usuário:
 """
 
 
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+model = genai.GenerativeModel("gemini-1.5-flash")
 app = OpenAPI(__name__, doc_prefix="")
-
-
-@app.get("/teste")
-def hello_world():
-    return {"Hello": "World"}
-
-
-@app.post("/recipe")
-def post_ingredientes(form: RecipeForm):
-    content = model.generate_content(prompt + form.ingredientes)
-    return content.text
