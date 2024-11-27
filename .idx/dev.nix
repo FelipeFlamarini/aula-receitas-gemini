@@ -10,7 +10,7 @@
       };
 
       onStart = {
-        flask-app = "source .venv/bin/activate && flask run --debug";
+        flask-app = "./devserver.sh";
         default.openFiles = [ "app.py" ];
       };
     };
