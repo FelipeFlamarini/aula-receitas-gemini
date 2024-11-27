@@ -1,8 +1,8 @@
 { pkgs, ... }: {
   channel = "stable-24.05"; 
-  packages = [ pkgs.python3 ];
+  packages = [ pkgs.python3 pkgs.python311Packages.pip ];
   idx = {
-    extensions = [ "ms-python.python" "rangav.vscode-thunder-client" ];
+    extensions = [ "ms-python.python" ];
     workspace = {
       onCreate = {
         install =
@@ -11,5 +11,15 @@
       };
       onStart = { run-server = "./devserver.sh"; };
     };
+    previews = {
+      enable = true;
+      previews = {
+        web = {
+          command = ["flask" "run" "--debug"];
+          manager = "web";
+        };
+      };
+    };
+
   };
 }
