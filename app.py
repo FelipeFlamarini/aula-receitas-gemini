@@ -19,11 +19,11 @@ Segue a lista de ingredientes fornecida pelo usuário:
 """
 
 
-app = OpenAPI(__name__)
+app = OpenAPI(__name__, doc_prefix="")
 
 
-@app.get("/")
-def hello_word():
+@app.get("/teste")
+def hello_world():
     return {"Hello": "World"}
 
 
